@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/register.css" type="text/css" media="screen and (min-width:1000px)" />
+	<link rel="stylesheet" href="./css/register-ipad.css" type="text/css" media="screen and (min-width:540px) and (max-width:999px)"/>
+	<link rel="stylesheet" href="./css/register-tel.css" type="text/css" media="screen and (max-width:540px)"/>
+	<script src="./js/jquery-1.7.2.js"></script>
+	<script src="./js/register.js"></script>
+
+
+</head>
+<body>
+	
+	
+
+	<!-- 容器 -->
+	<div id="container">
+
+		<!-- 透明层 -->
+		<div id="opa"></div>
+		
+		<!-- 内容层 -->
+		<div id="content">
+
+			<!-- 头部 -->
+			<div id="header">
+				<span><img src="./images/logo.png"></span>
+				<h1>欢迎加入converse官网商城</h1>
+			</div>
+
+			<!-- 主体 -->
+			<div id="main">
+				<div><img src="./images/register-main.jpg" alt=""></div>
+				
+				<form action="#" method="post" enctype="multipart/form-data">
+					<table border="0" width="440" height="550" cellspacing="0" cellpadding="0">
+						<tr>
+							<td>用户名:</td>
+							<td><input type="text" id="us" name="username" placeholder="请输入用户名"><span class="user-tips"></span></td>
+						</tr>
+						<tr>
+							<td>手机号:</td>
+							<td><input type="text" id="tel" name="tel" placeholder="请输入手机号"><span class="tel-tips"></span></td>
+						</tr>
+						<tr>
+							<td>邮箱:</td>
+							<td><input type="text" id="email" name="email" placeholder="exaample@converse.com"><span class="email-tips"></span></td>
+						</tr>
+						<tr>
+							<td>出生年月日:</td>
+							<td><input type="date"></td>
+						</tr>
+						<tr>
+							<td>性别:</td>
+							<td id="sex">
+								<input type="radio" name="sex" value="0">男
+								<input type="radio" name="sex" value="1">女
+							</td>
+						</tr>
+						<tr>
+							<td>密码:</td>
+							<td><input type="password" id="pd" name="password" placeholder="请输入密码"><span class="pd-tips"></span></td>
+						</tr>
+						<tr>
+							<td>确认密码:</td>
+							<td><input type="password" id="pded" placeholder="再次输入密码"><span class="passed-tips"></span></td>
+						</tr>
+						<tr >
+							<td>短信验证:</td>
+							<td><input type="text" id="check" placeholder="请输入验证码"><a id="checkmeg" href="#">发送短信验证码</span></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align:center" id="sub">
+								<input type="submit" value="立即注册">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align:center" id="copy">
+								一旦登录，即表明同意匡威的<a href="#">法律声明</a>和<a href="#">使用规则</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+
+			</div>
+
+			<!-- 页脚 -->
+			<div id="footer">
+				Copyright 1980-2016   匡威体育用品（中国）有限公司    保留所有权利    沪ICP备11044134号-2
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>

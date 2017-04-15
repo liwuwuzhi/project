@@ -1,0 +1,252 @@
+@font-face{
+	font-family:'Raphaelicons';
+	src:url('../fonts/raphaelicons-webfont.eot') format('eot'),
+		url('../fonts/raphaelicons-webfont.ttf') format('truetype'),
+		url('../fonts/raphaelicons-webfont.woff') format('woff'),
+		url('../fonts/raphaelicons-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+	
+body{
+	font-family: Georgia,serif;
+	background-color: #eee;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: #333;
+	overflow: hidden;
+	-webkit-font-smoothing:antialiased;
+}
+
+a{
+	text-decoration: none;
+	color:#fff;
+}
+.delay{
+	-webkit-transition: width 2s ease;
+    -moz-transition: width 2s ease;
+    -o-transition: width 2s ease;
+    -ms-transition: width 3s ease;
+    transition: width 2s ease;
+}
+
+.clearfix{
+	width:0;
+	height: 0;
+	overflow: hidden;
+	clear:both;
+	padding: 0;
+	margin: 0;
+}
+
+.st-container{
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-family: Arial,sans-serif;
+}
+
+/*注意:input只是判断当前选中的是哪个,样式是设置在a上的*/
+.st-container >input,
+.st-container >a
+{
+	width:20%;/*input和a的宽高设置成一样的,视觉上点击到a是也就点击到了input,browser默认input的形状为原型,实质上他已经占据了设置的宽高的实质位置,点击20%的范围内都可触发*/
+	height: 34px;
+	line-height:34px;
+	position: fixed;
+	bottom: 0;
+	cursor: pointer;
+}
+.st-container>input{
+	opacity: 0;
+	z-index: 10;
+	/*background-color: transparent;这里要用透明度控制而不能用背景色*/
+
+}	
+.st-container>a{
+	z-index: 9;
+	font-weight: 700;
+	font-size: 16px;
+	background:rgba(35,13,73,.9);
+	color: #fff;
+	text-align: center;
+	text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
+
+#st-control-1,#st-control-1+a{left: 0%}
+#st-control-2,#st-control-2+a{left: 20%}
+#st-control-3,#st-control-3+a{left: 40%}
+#st-control-4,#st-control-4+a{left: 60%}
+#st-control-5,#st-control-5+a{left: 80%}
+
+.st-container input:checked+a,
+.st-container input:checked:hover+a
+{
+	background:rgba(35,13,73,1);
+}
+.st-container input:checked+a:after{
+	content: "";
+	width:0;
+	height: 0;
+	/*overflow: hidden;*/
+	border:20px solid transparent;
+	border-bottom-color:rgba(35,13,73,1);
+	position: absolute;
+	left:50%;
+	bottom:100%;
+	margin-left: -20px;
+}
+.st-container input:hover+a{
+	background:rgba(35,13,73,.8);
+}
+
+
+
+/*content*/
+.st-scroll,
+.st-panel
+{
+	width:100%;
+	height:100%;
+	position: relative;/*body定义了overflow:hidden,所以这里看到只是一个panel的高宽*/
+}
+.st-scroll{
+	left:0;
+	top:0;
+	-webkit-transform:translate3d(0,0,0);
+	-webkit-backface-visibility:hidden;
+	-webkit-transition:transform .6s ease-in-out;
+}
+.st-panel{
+	background: #fff;
+	overflow: hidden;
+}
+
+/*实现锚点跳转*/
+/*锚点跳转会很生硬,用transiton给过渡,跳转的是谁,就给谁过渡,这里跳转是作用在st-scroll身上*/
+#st-control-1:checked ~ .st-scroll{
+	-webkit-transform:translateY(0%);
+}
+#st-control-2:checked ~ .st-scroll{
+	-webkit-transform:translateY(-100%);
+}
+#st-control-3:checked ~ .st-scroll{
+	-webkit-transform:translateY(-200%);
+}
+#st-control-4:checked ~ .st-scroll{
+	-webkit-transform:translateY(-300%);
+}
+#st-control-5:checked ~ .st-scroll{
+	-webkit-transform:translateY(-400%);
+}
+
+/*section*/
+.st-icon{
+	width:200px;
+	height: 200px;
+	background:rgba(35,13,73,.8);
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -100px;
+	-webkit-transform:translateY(-50%) rotate(45deg);
+}
+[data-icon]:after{
+	content:attr(data-icon);
+	width:200px;
+	height: 200px;
+	color:#fff;
+	font-size: 90px;
+	text-align: center;
+	line-height: 200px;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	margin:-100px 0 0 -100px;
+	-webkit-transform:rotate(-45deg) translateY(25%);
+	font-family: "Raphaelicons";
+	text-shadow: 2px 2px 2px rgba(0,0,0,.4);
+}
+
+.st-panel .text{
+	width: 60%;
+	text-align: center;
+	position: absolute;
+	left: 20%;
+	top:20%;
+	-webkit-backface-visibility:hidden;
+	color: #333;
+	line-height: 22px;
+}
+
+
+.st-panel h2{
+	font-family: arial;
+	text-shadow: 2px 2px 3px rgba(0,0,0,.4);
+	letter-spacing: 3px;
+	font-size: 66px;
+	line-height: 50px;
+	font-weight: 900px;
+	color:rgba(35,13,73,1);
+}
+.st-panel p{width:100%;}
+
+.st-panel:nth-child(even){ background:rgba(35,13,73,.6);}
+.st-panel:nth-child(even) .st-icon{ background:#fff}
+.st-panel:nth-child(even) .text{ color:#ddd;}
+.st-panel:nth-child(even) .text h2{ color:#fff;}
+.st-panel:nth-child(even) [data-icon]:after{ color:rgba(35,13,73,1);}
+
+
+
+/*定义滑动动画*/
+#st-control-1:checked ~ .st-scroll #st-panel-1 h2,
+#st-control-2:checked ~ .st-scroll #st-panel-2 h2,
+#st-control-3:checked ~ .st-scroll #st-panel-3 h2,
+#st-control-4:checked ~ .st-scroll #st-panel-4 h2,
+#st-control-5:checked ~ .st-scroll #st-panel-5 h2
+{ -webkit-animation:moveDowm 1s ease-in-out 0.2s backwards;}
+@-webkit-keyframes moveDowm{
+	0%{-webkit-transform:translateY(-40px);opacity: 0}
+	100%{-webkit-transform:translateY(0px);opacity: 1}
+}
+/*定义滑动动画*/
+#st-control-1:checked ~ .st-scroll #st-panel-1 p,
+#st-control-2:checked ~ .st-scroll #st-panel-2 p,
+#st-control-3:checked ~ .st-scroll #st-panel-3 p,
+#st-control-4:checked ~ .st-scroll #st-panel-4 p,
+#st-control-5:checked ~ .st-scroll #st-panel-5 p
+{ -webkit-animation:moveUp 1s ease-in-out 0.2s backwards;}
+@-webkit-keyframes moveUp{
+	0%{-webkit-transform:translateY(40%);opacity: 0}
+	100%{-webkit-transform:translateY(0px);opacity: 1}
+}
+
+
+
+
+/*响应式*/
+@media screen and (min-width: 980px){
+	.st-panel .text{}
+}
+@media screen and (min-width:400px) and (max-width:980px){
+	.st-panel h2{font-size: 52px;letter-spacing: 2px;}
+	.st-panel p{width:80%;position:absolute;left:10%;}
+	.st-container>a{font-size: 13px;}
+}
+@media screen and (max-width: 400px){
+	.st-panel h2{font-size: 28px;letter-spacing:1px}
+	.st-container>a{font-size: 12px;}
+	.st-icon{
+		width:120px;
+		height: 120px;
+		margin-left: -60px;
+	}
+	[data-icon]:after{
+		font-size:60px;
+		-webkit-transform:rotate(-45deg) translateY(15%);
+	}
+}

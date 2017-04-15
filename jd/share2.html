@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="move.js"></script>
+	<style>
+#rightNav{height:660px;position: fixed;right: 0px;top: 0px;border:0px solid #7a6e6e;}
+#rightNav #rightNav1{width:34px;height: 660px;position: relative; }
+#rightNav #rightNav1 #ul8{position: absolute;margin-top: 180px;list-style: none;}
+#rightNav #rightNav1 #ul8 li{width: 34px;height: 35px;background: cayn;margin-top: 1px;border-radius: 3px;background-color:#7a6e6e;z-index: 999;margin-right: -6px;}
+#rightNav #rightNav1 #ul8 .jingD1{background:#7a6e6e url(imges/background.png) no-repeat -86px -175px;}
+#rightNav #rightNav1 #ul8 .jingD1:hover .jingD1_1{position: absolute;right: 20px;}
+#rightNav #rightNav1 #ul8 .jingD2{background:#7a6e6e url(imges/background.png) no-repeat -48px 0px;}
+#rightNav #rightNav1 #ul8 .jingD3{background:#7a6e6e url(imges/background.png) no-repeat -48px -48px;}
+#rightNav #rightNav1 #ul8 .jingD4{background:#7a6e6e url(imges/background.png) no-repeat -48px -100px;}
+#rightNav #rightNav1 #ul8 .jingD5{background:#7a6e6e url(imges/background.png) no-repeat -186px -150px;}
+#rightNav #rightNav1 #ul8 .jingD6{background:#7a6e6e url(imges/background.png) no-repeat -48px -150px;}
+#rightNav #rightNav1 #ul9 .jingD7{background:#7a6e6e url(imges/background.png) no-repeat -48px -250px;}
+#rightNav #rightNav1 #ul9 .jingD8{background:#7a6e6e url(imges/background.png) no-repeat -48px -300px;}
+
+#rightNav #rightNav1 .jingD{width: 95px;height: 34px;position: absolute;background: #C81623;text-align: center;line-height: 34px;border-radius: 3px;right: -105px;z-index:-1;}
+#rightNav #rightNav1 .jingD span{color:#fff;font: 12px/150% Arial,Verdana,"\5b8b\4f53";}
+#rightNav #rightNav1 .jingD1_1{margin-top:181px; }
+#rightNav #rightNav1 .jingD1_2{margin-top:217px; }
+#rightNav #rightNav1 .jingD1_3{margin-top:253px; }
+#rightNav #rightNav1 .jingD1_4{margin-top:289px; }
+#rightNav #rightNav1 .jingD1_5{margin-top:325px; }
+#rightNav #rightNav1 .jingD1_6{margin-top:361px; }
+#rightNav #rightNav1 .jingD1_7{margin-top:555px; }
+#rightNav #rightNav1 .jingD1_8{margin-top:591px; }
+
+
+	</style>
+</head>
+<body>
+	<div id="rightNav">
+		<div id="rightNav1">
+			<ul id="ul8">
+				<li class="jingD1" index="0"></li>
+				<li class="jingD2" index="1"></li>
+				<li class="jingD3" index="2"></li>
+				<li class="jingD4" index="3"></li>
+				<li class="jingD5" index="4"></li>
+				<li class="jingD6" index="5"></li>
+			</ul>
+			<div class="jingD1_1 jingD"  index="0"><span>京东会员</span></div>
+			<div class="jingD1_2 jingD"  index="1"><span>购物车</span></div>
+			<div class="jingD1_3 jingD" index="2"><span>我的关注</span></div>
+			<div class="jingD1_4 jingD" index="3"><span>我的足迹</span></div>
+			<div class="jingD1_5 jingD" index="4"><span>我的消息</span></div>
+			<div class="jingD1_6 jingD" index="5"><span>资讯JIMI</span></div
+		</div>
+	</div>
+
+
+	<script>
+	var rightNav = document.getElementById("rightNav");
+	var ul8 = document.getElementById('ul8');
+	var ul8Li = ul8.getElementsByTagName('li');
+	var rightNav1 = document.getElementById('rightNav1');
+	var rightNav1_1 = rightNav1.getElementsByClassName('jingD');
+	
+	for(var i=0;i<ul8Li.length;i++){
+		
+		
+		ul8Li[i].onmouseover = function(){
+			var MyIndex = this.getAttribute('index');
+			move(rightNav1_1[MyIndex],{right:20})
+			rightNav1_1[MyIndex].style.backgroundColor = '#C81623';
+			this.style.backgroundColor = '#C81623';
+		}
+		ul8Li[i].onmouseout = function(){
+			var MyIndex = this.getAttribute('index');
+			move(rightNav1_1[MyIndex],{right:-85})
+			rightNav1_1[MyIndex].style.backgroundColor = '#7a6e6e';
+			this.style.backgroundColor = '#7a6e6e';
+		} 
+
+	}
+
+
+
+
+	</script>
+</body>
+</html>
